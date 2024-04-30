@@ -10,7 +10,7 @@ Route::get('/', fn () => Inertia::render('index', [
     'canRegister' => Route::has('register'),
     'laravelVersion' => Application::VERSION,
     'phpVersion' => PHP_VERSION,
-]))->name('index')->middleware(['auth', 'verified']);
+]))->name('index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
