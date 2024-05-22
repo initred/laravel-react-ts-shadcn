@@ -1,6 +1,7 @@
 import { PageProps } from "@/types"
+import { Icon } from "@iconify/react"
 import { Link, usePage } from "@inertiajs/react"
-import { ChevronDown } from "lucide-react"
+import { cn } from "@/lib/utils.ts"
 import { Button } from "@/components/ui/button.tsx"
 import {
   DropdownMenu,
@@ -10,23 +11,42 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu.tsx"
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet.tsx"
 import AppLogo from "@/components/app-logo.tsx"
+import { ModeToggle } from "@/components/mode-toggle.tsx"
 
 const APP_NAME = import.meta.env.VITE_APP_NAME
 
-export default function Header() {
+export default function Header({
+  transparent = false,
+}: {
+  transparent?: boolean
+}) {
   const user = usePage<PageProps>().props.auth.user
   const common_lang = usePage<PageProps>().props.common_lang
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 max-w-screen-2xl items-center">
-        <div className="mr-4 hidden md:flex">
+    <header
+      className={cn(
+        "top-0 z-10 flex",
+        transparent
+          ? "absolute w-full bg-transparent"
+          : "sticky border-b bg-white backdrop-blur dark:bg-black"
+      )}
+    >
+      <div className="mx-auto flex w-full max-w-7xl px-6 lg:px-8">
+        <div className="mr-4 flex h-14 items-center">
           <Link
             href={route("index")}
             className="mr-6 flex items-center space-x-2"
           >
-            <AppLogo className="h-6 w-auto" />
             <span>{APP_NAME}</span>
           </Link>
         </div>
@@ -37,7 +57,10 @@ export default function Header() {
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline">
                     <span>{user.name}</span>
-                    <ChevronDown className="size-4" />
+                    <Icon
+                      icon="lucide:chevron-down"
+                      className="ml-2.5 size-4"
+                    />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
@@ -64,7 +87,7 @@ export default function Header() {
               </DropdownMenu>
             ) : (
               <>
-                <Button asChild size="sm" variant="secondary">
+                <Button asChild size="sm">
                   <Link href={route("login")}>{common_lang["login"]}</Link>
                 </Button>
                 <Button asChild size="sm">
@@ -74,6 +97,21 @@ export default function Header() {
                 </Button>
               </>
             )}
+            <Sheet>
+              <SheetTrigger>
+                <Icon icon="ri-menu-fill" className="size-4" />
+              </SheetTrigger>
+              <SheetContent>
+                <SheetHeader>
+                  <SheetTitle>Are you absolutely sure?</SheetTitle>
+                  <SheetDescription>
+                    This action cannot be undone. This will permanently delete
+                    your account and remove your data from our servers.
+                  </SheetDescription>
+                </SheetHeader>
+              </SheetContent>
+            </Sheet>
+            <ModeToggle />
           </nav>
         </div>
       </div>

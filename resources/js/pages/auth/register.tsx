@@ -1,6 +1,6 @@
 import { Lang } from "@/types"
+import { Icon } from "@iconify/react"
 import { Link, useForm } from "@inertiajs/react"
-import { Loader2 } from "lucide-react"
 import { FormEventHandler, useEffect } from "react"
 import AuthLayout from "@/layouts/auth-layout.tsx"
 import CoreLayout from "@/layouts/core-layout.tsx"
@@ -128,7 +128,10 @@ export default function Register({ lang }: { lang: Lang }) {
                   disabled={form.processing}
                 >
                   {form.processing && (
-                    <Loader2 className="mr-2 size-4 animate-spin" />
+                    <Icon
+                      icon="lucide:loader-2"
+                      className="mr-2 size-4 animate-spin"
+                    />
                   )}
                   <span>{lang["register"]}</span>
                 </Button>

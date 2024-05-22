@@ -1,8 +1,20 @@
 import forms from "@tailwindcss/forms"
 import type { Config } from "tailwindcss"
+import colors from "tailwindcss/colors"
+import defaultTheme from "tailwindcss/defaultTheme"
+
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette")
 
 const config = {
-  darkMode: ["class"],
+  darkMode: [
+    "variant",
+    [
+      "@media (prefers-color-scheme: dark) { &:not(.light *) }",
+      "&:is(.dark *)",
+    ],
+  ],
   content: [
     "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
     "./storage/framework/views/*.php",
@@ -19,8 +31,14 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
-        border: "hsl(var(--border))",
+        success: colors.green,
+        info: colors.blue,
+        warning: colors.yellow,
+        danger: colors.red,
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
@@ -30,6 +48,7 @@ const config = {
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
+          ...colors.gray,
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
@@ -54,6 +73,9 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      borderColor: {
+        DEFAULT: "hsl(var(--border))",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -75,7 +97,18 @@ const config = {
       },
     },
   },
-  plugins: [forms, require("tailwindcss-animate")],
+  plugins: [addVariablesForColors, forms, require("tailwindcss-animate")],
 } satisfies Config
+
+function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"))
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  )
+
+  addBase({
+    ":root": newVars,
+  })
+}
 
 export default config

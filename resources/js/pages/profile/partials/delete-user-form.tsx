@@ -1,6 +1,6 @@
 import { Lang } from "@/types"
+import { Icon } from "@iconify/react"
 import { useForm } from "@inertiajs/react"
-import { Loader2 } from "lucide-react"
 import { FormEventHandler, useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import {
@@ -123,7 +123,10 @@ export default function DeleteUserForm({
                   onClick={deleteUser}
                 >
                   {form.processing && (
-                    <Loader2 className="mr-2 size-4 animate-spin" />
+                    <Icon
+                      icon="lucide:loader-2"
+                      className="mr-2 size-4 animate-spin"
+                    />
                   )}
                   <span>{lang["delete_account"]}</span>
                 </Button>
