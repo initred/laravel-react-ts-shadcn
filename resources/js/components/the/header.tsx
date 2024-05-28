@@ -50,12 +50,12 @@ export default function Header({
             <span>{APP_NAME}</span>
           </Link>
         </div>
-        <div className="flex flex-1 items-center justify-end space-x-2 md:justify-end md:justify-between">
+        <div className="flex items-center">
           <nav className="hidden items-center gap-2 md:flex">
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline" type="button">
+                  <Button variant="outline">
                     <span>{user.name}</span>
                     <Icon
                       icon="lucide:chevron-down"
@@ -87,39 +87,34 @@ export default function Header({
               </DropdownMenu>
             ) : (
               <>
-                <Button asChild size="sm">
+                <Button asChild size="sm" className="">
                   <Link href={route("login")}>{common_lang["login"]}</Link>
                 </Button>
-                <Button asChild size="sm">
+                <Button asChild size="sm" className="">
                   <Link href={route("register")}>
                     {common_lang["register"]}
                   </Link>
                 </Button>
               </>
             )}
-
             <ModeToggle />
           </nav>
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button
-                type="button"
-                variant="outline"
-                className="block p-3 md:hidden"
-              >
-                <Icon icon="ri-menu-fill" className="size-4" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent>
-              <SheetHeader>
-                <SheetTitle>Are you absolutely sure?</SheetTitle>
-                <SheetDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
-                </SheetDescription>
-              </SheetHeader>
-            </SheetContent>
-          </Sheet>
+          <nav className="md:hidden">
+            <Sheet>
+              <SheetTrigger>
+                <Icon icon="ri-menu-fill" className="size-5" />
+              </SheetTrigger>
+              <SheetContent>
+                <SheetHeader>
+                  <SheetTitle>Are you absolutely sure?</SheetTitle>
+                  <SheetDescription>
+                    This action cannot be undone. This will permanently delete
+                    your account and remove your data from our servers.
+                  </SheetDescription>
+                </SheetHeader>
+              </SheetContent>
+            </Sheet>
+          </nav>
         </div>
       </div>
     </header>
