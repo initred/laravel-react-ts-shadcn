@@ -4,7 +4,7 @@ import { SparklesCore } from "@/components/sparkles.tsx"
 export default function Index() {
   return (
     <CoreLayout>
-      <div className="relative flex size-full flex-col items-center justify-center overflow-hidden bg-black">
+      <div className="relative flex size-full flex-col items-center justify-center overflow-hidden bg-primary-950">
         <div className="absolute inset-0 h-screen w-full">
           <SparklesCore
             id="tsparticlesfullpage"
