@@ -38,14 +38,14 @@ export default function Header({
         "top-0 z-10 flex",
         transparent
           ? "absolute w-full bg-transparent"
-          : "sticky border-b bg-white backdrop-blur dark:bg-black"
+          : "sticky border-b border-neutral-200 bg-white backdrop-blur dark:border-b dark:border-neutral-800 dark:bg-black"
       )}
     >
       <div className="mx-auto flex w-full max-w-7xl justify-between px-6 lg:px-8">
         <div className="mr-4 flex h-14 items-center">
           <Link
             href={route("index")}
-            className="mr-6 flex items-center space-x-2"
+            className="mr-6 flex items-center space-x-2 text-white"
           >
             <span>{APP_NAME}</span>
           </Link>

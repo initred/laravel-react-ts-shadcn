@@ -1,3 +1,4 @@
+@import './prism.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,5 +18,9 @@
 
     #app {
         @apply flex flex-col h-dvh;
+    }
+
+    [inert] ::-webkit-scrollbar {
+        display: none;
     }
 }

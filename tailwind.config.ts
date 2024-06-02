@@ -1,4 +1,5 @@
 import forms from "@tailwindcss/forms"
+import typographyPlugin from "@tailwindcss/typography"
 import type { Config } from "tailwindcss"
 import colors from "tailwindcss/colors"
 import defaultTheme from "tailwindcss/defaultTheme"
@@ -54,7 +55,7 @@ const config = {
       },
     },
   },
-  plugins: [forms, require("tailwindcss-animate")],
+  plugins: [forms, require("tailwindcss-animate"), typographyPlugin],
 } satisfies Config
 
 export default config
