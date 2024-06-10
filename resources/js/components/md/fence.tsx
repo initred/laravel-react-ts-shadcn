@@ -8,12 +8,12 @@ export default function Fence({
   language,
 }: {
   children: string
-  language: string
+  language?: string
 }) {
   return (
     <Highlight
       code={children.trimEnd()}
-      language={language}
+      language={language ? language : "plaintext"}
       theme={{ plain: {}, styles: [] }}
     >
       {({ className, style, tokens, getTokenProps }) => (

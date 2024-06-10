@@ -15,7 +15,8 @@ Route::get('/', fn () => Inertia::render('index', [
 
 Route::get('components', fn () => Inertia::render('components'))->name('components');
 
-Route::resource('posts', PostController::class);
+Route::get('posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('posts/{slug}', [PostController::class, 'create'])->name('posts.create');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

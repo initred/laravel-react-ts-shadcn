@@ -7,7 +7,7 @@ import { Prose } from "@/components/md/prose.tsx"
 export default function Show({ post }: { post: Post }) {
   return (
     <CoreLayout>
-      <div className="min-w-0 max-w-2xl flex-auto px-4 py-16 lg:max-w-none lg:pl-8 lg:pr-0 xl:px-16">
+      <div className="mx-auto min-w-0 max-w-2xl flex-auto px-4 py-16 lg:max-w-7xl lg:pl-8 lg:pr-0 xl:px-16">
         <article>
           <Header title={post.title} />
           <Prose>{Markdown(post.body)}</Prose>
