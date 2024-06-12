@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu.tsx"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet.tsx"
-import AppLogo from "@/components/app-logo.tsx"
+// import AppLogo from "@/components/app-logo.tsx"
 import { ModeToggle } from "@/components/mode-toggle.tsx"
 
 const APP_NAME = import.meta.env.VITE_APP_NAME
