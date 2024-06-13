@@ -26,6 +26,9 @@
     "@radix-ui/react-toast": "^1.1.5",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.13",
+    "@tsparticles/engine": "^3.4.0",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.4.0",
     "@types/node": "^20.13.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -39,6 +42,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-tailwindcss": "^3.17.0",
+    "framer-motion": "^11.2.10",
     "laravel-vite-plugin": "^1.0",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
@@ -49,7 +53,8 @@
     "tailwindcss": "^3.4.3",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.4.5",
-    "vite": "^5.2"
+    "vite": "^5.2",
+    "zustand": "^4.5.2"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.4.2",
