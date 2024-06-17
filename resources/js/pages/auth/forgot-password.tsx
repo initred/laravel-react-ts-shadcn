@@ -1,18 +1,12 @@
-import { Lang } from "@/types"
-import { Icon } from "@iconify/react"
-import { useForm } from "@inertiajs/react"
-import { FormEventHandler } from "react"
-import AuthLayout from "@/layouts/auth-layout.tsx"
-import CoreLayout from "@/layouts/core-layout.tsx"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert.tsx"
-import { Button } from "@/components/ui/button.tsx"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card.tsx"
+import { Lang } from '@/types'
+import { Icon } from '@iconify/react'
+import { useForm } from '@inertiajs/react'
+import { FormEventHandler } from 'react'
+import AuthLayout from '@/layouts/auth-layout.tsx'
+import CoreLayout from '@/layouts/core-layout.tsx'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert.tsx'
+import { Button } from '@/components/ui/button.tsx'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.tsx'
 import {
   Form,
   FormControl,
@@ -20,25 +14,19 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form.tsx"
-import { Input } from "@/components/ui/input.tsx"
+} from '@/components/ui/form.tsx'
+import { Input } from '@/components/ui/input.tsx'
 
-export default function ForgotPassword({
-  status,
-  lang,
-}: {
-  status?: string
-  lang: Lang
-}) {
-  const title = lang["forgot_your_password"]
+export default function ForgotPassword({ status, lang }: { status?: string; lang: Lang }) {
+  const title = lang['forgot_your_password']
   const form = useForm({
-    email: "",
+    email: '',
   })
 
   const submit: FormEventHandler = (e) => {
     e.preventDefault()
 
-    form.post(route("password.email"))
+    form.post(route('password.email'))
   }
 
   return (
@@ -47,9 +35,7 @@ export default function ForgotPassword({
         <Card className="w-full">
           <CardHeader>
             <CardTitle>{title}</CardTitle>
-            <CardDescription>
-              {lang["forgot_your_password_description"]}
-            </CardDescription>
+            <CardDescription>{lang['forgot_your_password_description']}</CardDescription>
           </CardHeader>
           <CardContent>
             <Form form={form}>
@@ -64,31 +50,19 @@ export default function ForgotPassword({
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{lang["email"]}</FormLabel>
+                      <FormLabel>{lang['email']}</FormLabel>
                       <FormControl>
-                        <Input
-                          type="email"
-                          autoComplete="email"
-                          autoFocus
-                          {...field}
-                        />
+                        <Input type="email" autoComplete="email" autoFocus {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                <Button
-                  type="submit"
-                  className="w-full"
-                  disabled={form.processing}
-                >
+                <Button type="submit" className="w-full" disabled={form.processing}>
                   {form.processing && (
-                    <Icon
-                      icon="lucide:loader-2"
-                      className="mr-2 size-4 animate-spin"
-                    />
+                    <Icon icon="lucide:loader-2" className="mr-2 size-4 animate-spin" />
                   )}
-                  <span>{lang["email_password_reset_link"]}</span>
+                  <span>{lang['email_password_reset_link']}</span>
                 </Button>
               </form>
             </Form>

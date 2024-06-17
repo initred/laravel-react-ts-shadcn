@@ -1,8 +1,8 @@
-import type { Lang, PageProps } from "@/types"
-import CoreLayout from "@/layouts/core-layout.tsx"
-import DeleteUserForm from "./partials/delete-user-form.tsx"
-import UpdatePasswordForm from "./partials/update-password-form.tsx"
-import UpdateProfileInformationForm from "./partials/update-profile-information-form.tsx"
+import type { Lang, PageProps } from '@/types'
+import CoreLayout from '@/layouts/core-layout.tsx'
+import DeleteUserForm from './partials/delete-user-form.tsx'
+import UpdatePasswordForm from './partials/update-password-form.tsx'
+import UpdateProfileInformationForm from './partials/update-profile-information-form.tsx'
 
 export default function Edit({
   mustVerifyEmail,

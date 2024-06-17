@@ -1,10 +1,10 @@
-import Markdoc, { type Config } from "@markdoc/markdoc"
-import React from "react"
-import Callout from "@/components/md/callout.tsx"
-import Fence from "@/components/md/fence.tsx"
+import Markdoc, { type Config } from '@markdoc/markdoc'
+import React from 'react'
+import Callout from '@/components/md/callout.tsx'
+import Fence from '@/components/md/fence.tsx'
 
 const fence = {
-  render: "Fence",
+  render: 'Fence',
   attributes: {
     language: {
       type: String,
@@ -13,7 +13,7 @@ const fence = {
 }
 
 const callout = {
-  render: "Callout",
+  render: 'Callout',
   attributes: {},
 }
 

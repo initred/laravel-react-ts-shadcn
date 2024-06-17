@@ -1,15 +1,9 @@
-import { Lang } from "@/types"
-import { Icon } from "@iconify/react"
-import { useForm } from "@inertiajs/react"
-import { FormEventHandler, useEffect, useRef, useState } from "react"
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card.tsx"
+import { Lang } from '@/types'
+import { Icon } from '@iconify/react'
+import { useForm } from '@inertiajs/react'
+import { FormEventHandler, useEffect, useRef, useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.tsx'
 import {
   Dialog,
   DialogClose,
@@ -19,7 +13,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog.tsx"
+} from '@/components/ui/dialog.tsx'
 import {
   Form,
   FormControl,
@@ -27,11 +21,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form.tsx"
-import { Input } from "@/components/ui/input.tsx"
+} from '@/components/ui/form.tsx'
+import { Input } from '@/components/ui/input.tsx'
 
 export default function DeleteUserForm({
-  className = "",
+  className = '',
   lang,
 }: {
   className?: string
@@ -40,14 +34,14 @@ export default function DeleteUserForm({
   const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false)
   const passwordInput = useRef<HTMLInputElement>(null)
   const form = useForm({
-    password: "",
+    password: '',
   })
 
   const deleteUser: FormEventHandler = (e) => {
-    console.log("test")
+    console.log('test')
     e.preventDefault()
 
-    form.delete(route("profile.destroy"), {
+    form.delete(route('profile.destroy'), {
       preserveScroll: true,
       onSuccess: () => closeModal(),
       onError: () => passwordInput.current?.focus(),
@@ -70,23 +64,18 @@ export default function DeleteUserForm({
   return (
     <Card className={className}>
       <CardHeader>
-        <CardTitle>{lang["delete_account"]}</CardTitle>
-        <CardDescription>{lang["delete_account_description"]}</CardDescription>
+        <CardTitle>{lang['delete_account']}</CardTitle>
+        <CardDescription>{lang['delete_account_description']}</CardDescription>
       </CardHeader>
       <CardContent>
-        <Dialog
-          open={confirmingUserDeletion}
-          onOpenChange={setConfirmingUserDeletion}
-        >
+        <Dialog open={confirmingUserDeletion} onOpenChange={setConfirmingUserDeletion}>
           <DialogTrigger asChild>
-            <Button variant="destructive">{lang["delete_account"]}</Button>
+            <Button variant="destructive">{lang['delete_account']}</Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-lg">
             <DialogHeader>
-              <DialogTitle>{lang["delete_account_alert_title"]}</DialogTitle>
-              <DialogDescription>
-                {lang["delete_account_alert_description"]}
-              </DialogDescription>
+              <DialogTitle>{lang['delete_account_alert_title']}</DialogTitle>
+              <DialogDescription>{lang['delete_account_alert_description']}</DialogDescription>
             </DialogHeader>
             <Form form={form}>
               <form className="space-y-6">
@@ -94,13 +83,13 @@ export default function DeleteUserForm({
                   name="password"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{lang["password"]}</FormLabel>
+                      <FormLabel>{lang['password']}</FormLabel>
                       <FormControl>
                         <Input
                           type="password"
                           required
                           ref={passwordInput}
-                          placeholder={lang["password"]}
+                          placeholder={lang['password']}
                           autoFocus={true}
                           {...field}
                         />
@@ -114,7 +103,7 @@ export default function DeleteUserForm({
             <DialogFooter>
               <div className="flex flex-col justify-end gap-2 sm:flex-row">
                 <DialogClose asChild>
-                  <Button variant="outline">{lang["cancel"]}</Button>
+                  <Button variant="outline">{lang['cancel']}</Button>
                 </DialogClose>
                 <Button
                   type="button"
@@ -123,12 +112,9 @@ export default function DeleteUserForm({
                   onClick={deleteUser}
                 >
                   {form.processing && (
-                    <Icon
-                      icon="lucide:loader-2"
-                      className="mr-2 size-4 animate-spin"
-                    />
+                    <Icon icon="lucide:loader-2" className="mr-2 size-4 animate-spin" />
                   )}
-                  <span>{lang["delete_account"]}</span>
+                  <span>{lang['delete_account']}</span>
                 </Button>
               </div>
             </DialogFooter>

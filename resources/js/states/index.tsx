@@ -1,12 +1,12 @@
-import { create } from "zustand"
+import { create } from 'zustand'
 
-export type ThemeType = "light" | "dark" | "system"
+export type ThemeType = 'light' | 'dark' | 'system'
 
 export const useThemeState = create<{
   theme: ThemeType
   setTheme: (theme: ThemeType) => void
 }>((set) => ({
-  theme: "light",
+  theme: 'light',
   setTheme: (theme) => set({ theme }),
 }))
 

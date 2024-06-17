@@ -1,8 +1,8 @@
-import type { Lang, PageProps } from "@/types"
-import { Link, useForm, usePage } from "@inertiajs/react"
-import type { FormEventHandler } from "react"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert.tsx"
-import { Button } from "@/components/ui/button.tsx"
+import type { Lang, PageProps } from '@/types'
+import { Link, useForm, usePage } from '@inertiajs/react'
+import type { FormEventHandler } from 'react'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert.tsx'
+import { Button } from '@/components/ui/button.tsx'
 import {
   Card,
   CardContent,
@@ -10,7 +10,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card.tsx"
+} from '@/components/ui/card.tsx'
 import {
   Form,
   FormControl,
@@ -18,13 +18,13 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form.tsx"
-import { Input } from "@/components/ui/input.tsx"
+} from '@/components/ui/form.tsx'
+import { Input } from '@/components/ui/input.tsx'
 
 export default function UpdateProfileInformation({
   mustVerifyEmail,
   status,
-  className = "",
+  className = '',
   lang,
 }: {
   mustVerifyEmail: boolean
@@ -42,39 +42,31 @@ export default function UpdateProfileInformation({
   const submit: FormEventHandler = (e) => {
     e.preventDefault()
 
-    form.patch(route("profile.update"))
+    form.patch(route('profile.update'))
   }
 
   return (
     <Card className={className}>
       <CardHeader>
-        <CardTitle>{lang["profile_information"]}</CardTitle>
-        <CardDescription>
-          {lang["profile_information_description"]}
-        </CardDescription>
+        <CardTitle>{lang['profile_information']}</CardTitle>
+        <CardDescription>{lang['profile_information_description']}</CardDescription>
       </CardHeader>
       <CardContent>
         <Form form={form}>
           <form onSubmit={submit} className="space-y-6">
             {form.recentlySuccessful && (
               <Alert className="w-full">
-                <AlertTitle>{lang["notification"]}</AlertTitle>
-                <AlertDescription>{lang["saved"]}</AlertDescription>
+                <AlertTitle>{lang['notification']}</AlertTitle>
+                <AlertDescription>{lang['saved']}</AlertDescription>
               </Alert>
             )}
             <FormField
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{lang["name"]}</FormLabel>
+                  <FormLabel>{lang['name']}</FormLabel>
                   <FormControl>
-                    <Input
-                      type="text"
-                      autoFocus
-                      autoComplete="name"
-                      required
-                      {...field}
-                    />
+                    <Input type="text" autoFocus autoComplete="name" required {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -84,20 +76,15 @@ export default function UpdateProfileInformation({
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{lang["email"]}</FormLabel>
+                  <FormLabel>{lang['email']}</FormLabel>
                   <FormControl>
-                    <Input
-                      type="email"
-                      autoComplete="username"
-                      required
-                      {...field}
-                    />
+                    <Input type="email" autoComplete="username" required {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button disabled={form.processing}>{lang["save"]}</Button>
+            <Button disabled={form.processing}>{lang['save']}</Button>
           </form>
         </Form>
       </CardContent>
@@ -106,25 +93,23 @@ export default function UpdateProfileInformation({
         <CardFooter>
           <div className="flex w-full flex-col">
             <p>
-              <span>{lang["email_unverified"]}</span>
+              <span>{lang['email_unverified']}</span>
               <Button type="button" className="inline" variant="link" asChild>
                 <Link
-                  href={route("verification.send")}
+                  href={route('verification.send')}
                   method="post"
                   as="button"
                   className="underline"
                 >
-                  {lang["resend_verification_email"]}
+                  {lang['resend_verification_email']}
                 </Link>
               </Button>
             </p>
 
-            {status === "verification-link-sent" && (
+            {status === 'verification-link-sent' && (
               <Alert>
-                <AlertTitle>{lang["notification"]}</AlertTitle>
-                <AlertDescription>
-                  {lang["resend_verification_email_sent"]}
-                </AlertDescription>
+                <AlertTitle>{lang['notification']}</AlertTitle>
+                <AlertDescription>{lang['resend_verification_email_sent']}</AlertDescription>
               </Alert>
             )}
           </div>

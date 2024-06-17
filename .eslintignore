@@ -1,6 +1,0 @@
-dist/*
-public
-node_modules
-*.esm.js
-bootstrap
-vendor

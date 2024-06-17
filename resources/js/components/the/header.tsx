@@ -1,8 +1,8 @@
-import { PageProps } from "@/types"
-import { Icon } from "@iconify/react"
-import { Link, usePage } from "@inertiajs/react"
-import { cn } from "@/lib/utils.ts"
-import { Button } from "@/components/ui/button.tsx"
+import { PageProps } from '@/types'
+import { Icon } from '@iconify/react'
+import { Link, usePage } from '@inertiajs/react'
+import { cn } from '@/lib/utils.ts'
+import { Button } from '@/components/ui/button.tsx'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,36 +10,29 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu.tsx"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet.tsx"
+} from '@/components/ui/dropdown-menu.tsx'
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet.tsx'
 // import AppLogo from "@/components/app-logo.tsx"
-import { ModeToggle } from "@/components/mode-toggle.tsx"
+import { ModeToggle } from '@/components/mode-toggle.tsx'
 
 const APP_NAME = import.meta.env.VITE_APP_NAME
 
-export default function Header({
-  transparent = false,
-}: {
-  transparent?: boolean
-}) {
+export default function Header({ transparent = false }: { transparent?: boolean }) {
   const user = usePage<PageProps>().props.auth.user
   const common_lang = usePage<PageProps>().props.common_lang
 
   return (
     <header
       className={cn(
-        "top-0 z-10 flex",
+        'top-0 z-10 flex',
         transparent
-          ? "absolute w-full bg-transparent"
-          : "sticky border-b border-neutral-200 bg-white backdrop-blur dark:border-b dark:border-neutral-800 dark:bg-black"
+          ? 'absolute w-full bg-transparent'
+          : 'sticky border-b border-neutral-200 bg-white backdrop-blur dark:border-b dark:border-neutral-800 dark:bg-black'
       )}
     >
       <div className="mx-auto flex w-full max-w-7xl justify-between px-6 lg:px-8">
         <div className="mr-4 flex h-14 items-center">
-          <Link
-            href={route("index")}
-            className="mr-6 flex items-center space-x-2 text-white"
-          >
+          <Link href={route('index')} className="mr-6 flex items-center space-x-2 text-white">
             <span>{APP_NAME}</span>
           </Link>
         </div>
@@ -50,30 +43,18 @@ export default function Header({
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline">
                     <span>{user.name}</span>
-                    <Icon
-                      icon="lucide:chevron-down"
-                      className="ml-2.5 size-4"
-                    />
+                    <Icon icon="lucide:chevron-down" className="ml-2.5 size-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <DropdownMenuLabel>
-                    {common_lang["my_account"]}
-                  </DropdownMenuLabel>
+                  <DropdownMenuLabel>{common_lang['my_account']}</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild>
-                    <Link href={route("profile.edit")}>
-                      {common_lang["profile"]}
-                    </Link>
+                    <Link href={route('profile.edit')}>{common_lang['profile']}</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link
-                      className="w-full"
-                      href={route("logout")}
-                      method="post"
-                      as="button"
-                    >
-                      {common_lang["logout"]}
+                    <Link className="w-full" href={route('logout')} method="post" as="button">
+                      {common_lang['logout']}
                     </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -81,12 +62,10 @@ export default function Header({
             ) : (
               <>
                 <Button asChild size="sm" className="">
-                  <Link href={route("login")}>{common_lang["login"]}</Link>
+                  <Link href={route('login')}>{common_lang['login']}</Link>
                 </Button>
                 <Button asChild size="sm" className="">
-                  <Link href={route("register")}>
-                    {common_lang["register"]}
-                  </Link>
+                  <Link href={route('register')}>{common_lang['register']}</Link>
                 </Button>
               </>
             )}
@@ -106,17 +85,17 @@ export default function Header({
                   <ul className="flex flex-col divide-y divide-secondary-800 [*&>li>*]:block [*&>li>*]:px-4 [*&>li>*]:py-3 hover:[*&>li>*]:bg-secondary-900">
                     {user ? (
                       <li>
-                        <Link href={route("logout")} method="post">
+                        <Link href={route('logout')} method="post">
                           로그아웃
                         </Link>
                       </li>
                     ) : (
                       <>
                         <li>
-                          <Link href={route("register")}>회원가입</Link>
+                          <Link href={route('register')}>회원가입</Link>
                         </li>
                         <li>
-                          <Link href={route("login")}>로그인</Link>
+                          <Link href={route('login')}>로그인</Link>
                         </li>
                       </>
                     )}
@@ -126,7 +105,7 @@ export default function Header({
                 {user && (
                   <div className="absolute bottom-0 flex w-full">
                     <Link
-                      href={route("profile.edit")}
+                      href={route('profile.edit')}
                       className="group flex grow border-t border-secondary-800 p-4"
                     >
                       <div>

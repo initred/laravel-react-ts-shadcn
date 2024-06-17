@@ -1,12 +1,12 @@
-import { ComponentProps } from "react"
-import { DarkMode, Gradient, LightMode } from "@/components/md/icon.tsx"
+import { ComponentProps } from 'react'
+import { DarkMode, Gradient, LightMode } from '@/components/md/icon.tsx'
 
 export function Theming({
   id,
   color,
 }: {
   id: string
-  color?: ComponentProps<typeof Gradient>["color"]
+  color?: ComponentProps<typeof Gradient>['color']
 }) {
   return (
     <>

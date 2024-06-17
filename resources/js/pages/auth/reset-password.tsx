@@ -1,16 +1,11 @@
-import { Lang } from "@/types"
-import { Icon } from "@iconify/react"
-import { useForm } from "@inertiajs/react"
-import { FormEventHandler, useEffect } from "react"
-import AuthLayout from "@/layouts/auth-layout.tsx"
-import CoreLayout from "@/layouts/core-layout.tsx"
-import { Button } from "@/components/ui/button.tsx"
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card.tsx"
+import { Lang } from '@/types'
+import { Icon } from '@iconify/react'
+import { useForm } from '@inertiajs/react'
+import { FormEventHandler, useEffect } from 'react'
+import AuthLayout from '@/layouts/auth-layout.tsx'
+import CoreLayout from '@/layouts/core-layout.tsx'
+import { Button } from '@/components/ui/button.tsx'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.tsx'
 import {
   Form,
   FormControl,
@@ -18,8 +13,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form.tsx"
-import { Input } from "@/components/ui/input.tsx"
+} from '@/components/ui/form.tsx'
+import { Input } from '@/components/ui/input.tsx'
 
 export default function ResetPassword({
   token,
@@ -30,24 +25,24 @@ export default function ResetPassword({
   email: string
   lang: Lang
 }) {
-  const title = lang["reset_password"]
+  const title = lang['reset_password']
   const form = useForm({
     token: token,
     email: email,
-    password: "",
-    password_confirmation: "",
+    password: '',
+    password_confirmation: '',
   })
 
   useEffect(() => {
     return () => {
-      form.reset("password", "password_confirmation")
+      form.reset('password', 'password_confirmation')
     }
   }, [])
 
   const submit: FormEventHandler = (e) => {
     e.preventDefault()
 
-    form.post(route("password.store"))
+    form.post(route('password.store'))
   }
 
   return (
@@ -65,14 +60,9 @@ export default function ResetPassword({
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{lang["email"]}</FormLabel>
+                      <FormLabel>{lang['email']}</FormLabel>
                       <FormControl>
-                        <Input
-                          type="email"
-                          autoComplete="email"
-                          autoFocus
-                          {...field}
-                        />
+                        <Input type="email" autoComplete="email" autoFocus {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -82,13 +72,9 @@ export default function ResetPassword({
                   name="password"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{lang["password"]}</FormLabel>
+                      <FormLabel>{lang['password']}</FormLabel>
                       <FormControl>
-                        <Input
-                          type="password"
-                          autoComplete="password"
-                          {...field}
-                        />
+                        <Input type="password" autoComplete="password" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -98,31 +84,19 @@ export default function ResetPassword({
                   name="password_confirmation"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{lang["password_confirmation"]}</FormLabel>
+                      <FormLabel>{lang['password_confirmation']}</FormLabel>
                       <FormControl>
-                        <Input
-                          type="password"
-                          autoComplete="new-password"
-                          required
-                          {...field}
-                        />
+                        <Input type="password" autoComplete="new-password" required {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                <Button
-                  type="submit"
-                  className="w-full"
-                  disabled={form.processing}
-                >
+                <Button type="submit" className="w-full" disabled={form.processing}>
                   {form.processing && (
-                    <Icon
-                      icon="lucide:loader-2"
-                      className="mr-2 size-4 animate-spin"
-                    />
+                    <Icon icon="lucide:loader-2" className="mr-2 size-4 animate-spin" />
                   )}
-                  <span>{lang["reset_password"]}</span>
+                  <span>{lang['reset_password']}</span>
                 </Button>
               </form>
             </Form>

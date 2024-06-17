@@ -1,8 +1,8 @@
-import { Post } from "@/types/model"
-import CoreLayout from "@/layouts/core-layout.tsx"
-import { Header } from "@/components/md/header.tsx"
-import { Markdown } from "@/components/md/markdown.tsx"
-import { Prose } from "@/components/md/prose.tsx"
+import { Post } from '@/types/model'
+import CoreLayout from '@/layouts/core-layout.tsx'
+import { Header } from '@/components/md/header.tsx'
+import { Markdown } from '@/components/md/markdown.tsx'
+import { Prose } from '@/components/md/prose.tsx'
 
 export default function Show({ post }: { post: Post }) {
   return (

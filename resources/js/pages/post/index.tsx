@@ -1,4 +1,4 @@
-import CoreLayout from "@/layouts/core-layout.tsx"
+import CoreLayout from '@/layouts/core-layout.tsx'
 
 export default function Index() {
   return (

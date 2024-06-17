@@ -1,19 +1,13 @@
-import { Lang } from "@/types"
-import { Icon } from "@iconify/react"
-import { Link, useForm } from "@inertiajs/react"
-import { FormEventHandler, useEffect } from "react"
-import AuthLayout from "@/layouts/auth-layout.tsx"
-import CoreLayout from "@/layouts/core-layout.tsx"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert.tsx"
-import { Button } from "@/components/ui/button.tsx"
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card.tsx"
-import { Checkbox } from "@/components/ui/checkbox.tsx"
+import { Lang } from '@/types'
+import { Icon } from '@iconify/react'
+import { Link, useForm } from '@inertiajs/react'
+import { FormEventHandler, useEffect } from 'react'
+import AuthLayout from '@/layouts/auth-layout.tsx'
+import CoreLayout from '@/layouts/core-layout.tsx'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert.tsx'
+import { Button } from '@/components/ui/button.tsx'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card.tsx'
+import { Checkbox } from '@/components/ui/checkbox.tsx'
 import {
   Form,
   FormControl,
@@ -21,8 +15,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form.tsx"
-import { Input } from "@/components/ui/input.tsx"
+} from '@/components/ui/form.tsx'
+import { Input } from '@/components/ui/input.tsx'
 
 export default function Login({
   status,
@@ -34,21 +28,21 @@ export default function Login({
   lang: Lang
 }) {
   const form = useForm({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
     remember: false,
   })
 
   useEffect(() => {
     return () => {
-      form.reset("password")
+      form.reset('password')
     }
   }, [])
 
   const submit: FormEventHandler = (e) => {
     e.preventDefault()
 
-    form.post(route("login"))
+    form.post(route('login'))
   }
 
   return (
@@ -56,7 +50,7 @@ export default function Login({
       <AuthLayout>
         <Card className="w-full">
           <CardHeader>
-            <CardTitle>{lang["login"]}</CardTitle>
+            <CardTitle>{lang['login']}</CardTitle>
           </CardHeader>
 
           <CardContent>
@@ -75,14 +69,9 @@ export default function Login({
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{lang["email"]}</FormLabel>
+                      <FormLabel>{lang['email']}</FormLabel>
                       <FormControl>
-                        <Input
-                          type="email"
-                          autoComplete="email"
-                          autoFocus
-                          {...field}
-                        />
+                        <Input type="email" autoComplete="email" autoFocus {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -92,13 +81,9 @@ export default function Login({
                   name="password"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{lang["password"]}</FormLabel>
+                      <FormLabel>{lang['password']}</FormLabel>
                       <FormControl>
-                        <Input
-                          type="password"
-                          autoComplete="password"
-                          {...field}
-                        />
+                        <Input type="password" autoComplete="password" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -112,25 +97,16 @@ export default function Login({
                         <FormControl>
                           <Checkbox {...field} />
                         </FormControl>
-                        <FormLabel className="ml-2">
-                          {lang["remember"]}
-                        </FormLabel>
+                        <FormLabel className="ml-2">{lang['remember']}</FormLabel>
                       </div>
                     </FormItem>
                   )}
                 />
-                <Button
-                  type="submit"
-                  className="w-full"
-                  disabled={form.processing}
-                >
+                <Button type="submit" className="w-full" disabled={form.processing}>
                   {form.processing && (
-                    <Icon
-                      icon="lucide:loader-2"
-                      className="mr-2 size-4 animate-spin"
-                    />
+                    <Icon icon="lucide:loader-2" className="mr-2 size-4 animate-spin" />
                   )}
-                  <span>{lang["login"]}</span>
+                  <span>{lang['login']}</span>
                 </Button>
               </form>
             </Form>
@@ -138,9 +114,7 @@ export default function Login({
           <CardFooter className="justify-center">
             {canResetPassword && (
               <Button type="button" variant="link" asChild>
-                <Link href={route("password.request")}>
-                  {lang["forgot_password"]}
-                </Link>
+                <Link href={route('password.request')}>{lang['forgot_password']}</Link>
               </Button>
             )}
           </CardFooter>

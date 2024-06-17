@@ -1,5 +1,5 @@
-import CoreLayout from "@/layouts/core-layout.tsx"
-import { SparklesCore } from "@/components/sparkles.tsx"
+import CoreLayout from '@/layouts/core-layout.tsx'
+import { SparklesCore } from '@/components/sparkles.tsx'
 
 export default function Index() {
   return (
@@ -20,8 +20,8 @@ export default function Index() {
           XENON
         </h1>
         <p className="mx-auto mt-4 max-w-lg text-pretty text-center text-base font-normal text-neutral-300">
-          Starter kits and documents developing the fastest web service in the
-          Laravel Inertia React TypeScript Stack
+          Starter kits and documents developing the fastest web service in the Laravel Inertia React
+          TypeScript Stack
         </p>
       </div>
     </CoreLayout>
