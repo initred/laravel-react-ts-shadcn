@@ -1,6 +1,7 @@
 import { PageProps } from '@/types'
-import { Icon } from '@iconify/react'
 import { Link, usePage } from '@inertiajs/react'
+import IconLucideChevronDown from '~icons/lucide/chevron-down'
+import IconRiMenuFill from '~icons/ri/menu-fill'
 import { cn } from '@/lib/utils.ts'
 import { Button } from '@/components/ui/button.tsx'
 import {
@@ -43,7 +44,7 @@ export default function Header({ transparent = false }: { transparent?: boolean 
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline">
                     <span>{user.name}</span>
-                    <Icon icon="lucide:chevron-down" className="ml-2.5 size-4" />
+                    <IconLucideChevronDown className="ml-2.5 size-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
@@ -74,7 +75,7 @@ export default function Header({ transparent = false }: { transparent?: boolean 
           <nav className="md:hidden">
             <Sheet>
               <SheetTrigger>
-                <Icon icon="ri-menu-fill" className="size-5" />
+                <IconRiMenuFill className="size-5" />
               </SheetTrigger>
               <SheetContent className="border-secondary-800 p-0">
                 <div className="p-1">

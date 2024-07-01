@@ -1,6 +1,6 @@
 import { Lang } from '@/types'
-import { Icon } from '@iconify/react'
 import { useForm } from '@inertiajs/react'
+import IconLucideLoaderTwo from '~icons/lucide/loader-2'
 import { FormEventHandler, useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.tsx'
@@ -111,9 +111,7 @@ export default function DeleteUserForm({
                   disabled={form.processing}
                   onClick={deleteUser}
                 >
-                  {form.processing && (
-                    <Icon icon="lucide:loader-2" className="mr-2 size-4 animate-spin" />
-                  )}
+                  {form.processing && <IconLucideLoaderTwo className="mr-2 size-4 animate-spin" />}
                   <span>{lang['delete_account']}</span>
                 </Button>
               </div>

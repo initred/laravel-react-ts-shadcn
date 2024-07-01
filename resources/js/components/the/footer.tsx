@@ -1,30 +1,34 @@
-import { Icon } from '@iconify/react'
+import IconRiGithubFill from '~icons/ri/github-fill'
+import IconRiInstagramLine from '~icons/ri/instagram-line'
+import IconRiLinkedinBoxFill from '~icons/ri/linkedin-box-fill'
+import IconRiTwitterXLine from '~icons/ri/twitter-x-line'
+import IconRiYoutubeFill from '~icons/ri/youtube-fill'
 
 export default function Footer({ transparent = false }: { transparent?: boolean }) {
   const links = [
     {
       name: 'LinkedIn',
-      icon: 'ri:linkedin-box-fill',
+      icon: <IconRiLinkedinBoxFill className="size-6" />,
       href: '#',
     },
     {
       name: 'Instagram',
-      icon: 'ri:instagram-line',
+      icon: <IconRiInstagramLine className="size-6" />,
       href: '#',
     },
     {
       name: 'Twitter',
-      icon: 'ri:twitter-x-line',
+      icon: <IconRiTwitterXLine className="size-6" />,
       href: '#',
     },
     {
       name: 'GitHub',
-      icon: 'ri:github-fill',
+      icon: <IconRiGithubFill className="size-6" />,
       href: '#',
     },
     {
       name: 'YouTube',
-      icon: 'ri:youtube-fill',
+      icon: <IconRiYoutubeFill className="size-6" />,
       href: '#',
     },
   ]
@@ -38,7 +42,7 @@ export default function Footer({ transparent = false }: { transparent?: boolean 
           {links.map((link) => (
             <a key={link.name} href={link.href} className="text-gray-400 hover:text-gray-500">
               <span className="sr-only">{link.name}</span>
-              <Icon icon={link.icon} className="size-6" />
+              {link.icon}
             </a>
           ))}
         </div>

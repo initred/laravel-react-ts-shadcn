@@ -15,7 +15,7 @@ createInertiaApp({
     const root = createRoot(el)
 
     root.render(
-      <ThemeProvider storageKey="vite-ui-theme">
+      <ThemeProvider>
         <App {...props} />
       </ThemeProvider>
     )

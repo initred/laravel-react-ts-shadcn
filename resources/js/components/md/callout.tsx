@@ -1,6 +1,6 @@
-import { Icon } from '@iconify/react'
 import clsx from 'clsx'
 import { ReactNode } from 'react'
+import { Icon } from '@/components/md/icon.tsx'
 
 const styles = {
   note: {

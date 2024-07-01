@@ -1,6 +1,6 @@
 import { Lang } from '@/types'
-import { Icon } from '@iconify/react'
 import { useForm } from '@inertiajs/react'
+import IconLucideLoaderTwo from '~icons/lucide/loader-2'
 import { FormEventHandler } from 'react'
 import AuthLayout from '@/layouts/auth-layout.tsx'
 import CoreLayout from '@/layouts/core-layout.tsx'
@@ -59,9 +59,7 @@ export default function ForgotPassword({ status, lang }: { status?: string; lang
                   )}
                 />
                 <Button type="submit" className="w-full" disabled={form.processing}>
-                  {form.processing && (
-                    <Icon icon="lucide:loader-2" className="mr-2 size-4 animate-spin" />
-                  )}
+                  {form.processing && <IconLucideLoaderTwo className="mr-2 size-4 animate-spin" />}
                   <span>{lang['email_password_reset_link']}</span>
                 </Button>
               </form>

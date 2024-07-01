@@ -19,7 +19,7 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    files: ['**/*.jsx', '**/*.tsx'],
+    files: ['**/*.jsx', '**/*.tsx', '**/*.json'],
     languageOptions: {
       parserOptions: {
         ecmaFeatures: { jsx: true },
@@ -43,7 +43,7 @@ export default [
         version: 'detect',
       },
       tailwindcss: {
-        callees: ['clsx', 'cn'],
+        callees: ['twMerge', 'tv', 'clsx', 'cn'],
         config: 'tailwind.config.ts',
       },
     },

@@ -1,6 +1,6 @@
 import { Lang } from '@/types'
-import { Icon } from '@iconify/react'
 import { useForm } from '@inertiajs/react'
+import IconLucideLoaderTwo from '~icons/lucide/loader-2'
 import type { FormEventHandler } from 'react'
 import { useRef } from 'react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert.tsx'
@@ -104,9 +104,7 @@ export default function UpdatePasswordForm({
               )}
             />
             <Button type="submit" disabled={form.processing}>
-              {form.processing && (
-                <Icon icon="lucide:loader-2" className="mr-2 size-4 animate-spin" />
-              )}
+              {form.processing && <IconLucideLoaderTwo className="mr-2 size-4 animate-spin" />}
               <span>{lang['save']}</span>
             </Button>
           </form>
