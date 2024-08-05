@@ -14,7 +14,7 @@
         "prettier-plugin-tailwindcss"
     ],
     "tailwindConfig": "./tailwind.config.ts",
-    "tailwindFunctions": ["clsx", "cn"],
+    "tailwindFunctions": ["twMerge", "tv", "clsx", "cn"],
     "importOrder": [
         "^(react/(.*)$)|^(react$)",
         "^(inertiajs/(.*)$)|^(inertiajs$)",
